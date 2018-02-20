@@ -1,4 +1,4 @@
-# Easy Character creation for an RPG with AngularJS
+# Easy Character creation frontpage for an RPG with AngularJS
 
 ### I created this site to test some basic interesting features of AngularJS.
 
