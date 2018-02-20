@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="labyrinth">
+    <head>
+        <meta charset="UTF-8">
+        <title>Labyrinth</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body>
+        <script src="main.js"></script>
+        <!-- <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script> -->
+
+        <div>
+            <div>
+                <h1>Welcome in the Labyrinth!</h1>
+                <h2>Character creation</h2>
+                <form ng-controller="CharCreateController as charCreate" ng-submit="charCreate.addCharChoices(charCreate.newCharChoices.yourName, charCreate.newCharChoices.yourRace, charCreate.newCharChoices.yourOccupation)">
+                    <div>
+                        <ul>
+                            <li>
+                                <label>Name:</label>
+                                <input type="text" ng-model="charCreate.newCharChoices.yourName" placeholder="Enter a name here">
+                            </li>
+                            <li>
+                                <label>Choose your race:</label>
+                                <a href ng-click="raceTab = 'human'"><button>human</button></a>
+                                <a href ng-click="raceTab = 'elf'"><button>elf</button></a>
+                                <a href ng-click="raceTab = 'orc'"><button>orc</button></a>
+                                <p ng-init="raceTab = 'human'" ng-model="charCreate.newCharChoices.yourRace = raceTab">Your choice: {{raceTab}}</p>
+                            </li>
+                            <li>
+                                <label>Choose your class:</label>
+                                <a href ng-click="occupationTab = 'warrior'"><button>warrior</button></a>
+                                <a href ng-click="occupationTab = 'ranger'"><button>ranger</button></a>
+                                <a href ng-click="occupationTab = 'wizard'"><button>wizard</button></a>
+                                <p ng-init="occupationTab = 'warrior'" ng-model="charCreate.newCharChoices.yourOccupation = occupationTab">Your choice: {{occupationTab}}</p>
+                            </li>
+                        </ul>
+                        <input type="submit" value="Roll the dice!" />
+                    </form>
+                    <hr>
+
+                    <div ng-show="charCreate.newChar">
+                        <h1>{{charCreate.newChar.name}}</h1>
+                        <h4>{{charCreate.newChar.race}}</h4>
+                        <h4>{{charCreate.newChar.occupation}}</h4>
+                        <br>
+                        <h4>Life: {{charCreate.newChar.hp}}</h4>
+                        <h4>Consciousness points: {{charCreate.newChar.cp}}</h4>
+                        <h4>Strength: {{charCreate.newChar.strength}}</h4>
+                        <h4>Dexterity: {{charCreate.newChar.dexterity}}</h4>
+                        <h4>Endurance: {{charCreate.newChar.endurance}}</h4>
+                        <h4>Vitality: {{charCreate.newChar.vitality}}</h4>
+                        <h4>Integrity: {{charCreate.newChar.integrity}}</h4>
+                        <h4>Starting items in the inventory: {{charCreate.newChar.inv}}</h4>
+                        <br>
+                        <h4>Right hand: {{charCreate.newChar.equippedWeaponsRighrt}}</h4>
+                        <h4>Damage right hand: {{charCreate.newChar.damageRight}}</h4>
+                        <h4>Left hand: {{charCreate.newChar.equippedWeaponsLeft}}</h4>
+                        <h4>Damage left hand: {{charCreate.newChar.damageLeft}}</h4>
+                        <br>
+                        <button>Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>
